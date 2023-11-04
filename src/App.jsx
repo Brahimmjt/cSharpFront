@@ -1,5 +1,6 @@
 import Etudiants from "./Etudiants";
 import Releviers from "./Releviers"
+import Login from "./Login";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
       
         <Routes>
           <Route path="/Releviers" element={<Releviers />}/>
-          <Route path="/" element={<Etudiants />}/>
+          {/* <Route path="/" element={<Etudiants />}/> */}
+          <Route path="/" element={<Login />}/>
         </Routes>
       
     </div>
