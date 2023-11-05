@@ -1,6 +1,7 @@
 import React from 'react'
 
 const First = ({isSelected}) => {
+  
   return (
     <div className={`${isSelected === "first" ? "block": "hidden"} w-[80%] mx-auto`}>
         <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Semestre 1</h3>

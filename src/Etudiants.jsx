@@ -1,6 +1,18 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 const Etudiants = () => {
+  const [studentData, setStudentData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/students')
+      .then(response => {
+        console.log(response.data)
+        setStudentData(response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
   return (
     <div className={`w-[80%] mx-auto mt-14`}>
         <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Liste des Etudiants</h3>
