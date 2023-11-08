@@ -1,85 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Switch from "./Switch";
-
-
-const Third = ({isSelected}) => {
-  const [studentData, setStudentData] = useState([]);
-  const [selectStudent,setSelectStudent] = useState({
-    "name": "JJJ",
-    "apogee": 222,
-    "prenom": "foo",
-    "noteN": 900.0,
-    "noteR": 9060.0,
-    "email": "hiii.doe@example.com",
-    "m3": 0.0,
-    "m4": 0.5,
-    "mr5": 0.0,
-    "m1": 0.0,
-    "m2": 0.0,
-    "mr4": 0.0,
-    "mr6": 0.0,
-    "mr3": 0.0,
-    "mr2": 0.0,
-    "m6": 0.0,
-    "m5": 0.0,
-    "mr1": 0.0
-});
- 
-  const handleRowClick = (student) => {
-    // Place your code here to do something with the selected student.
-    
-    setSelectStudent(student);
-    console.log('Selected student:',selectStudent);
-  };
-
-  useEffect(() => {
-    axios.get('http://localhost:8080/students/3')
-      .then(response => {
-        console.log("hello abdoo")
-        setStudentData(response.data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }, []);
-  console.log();
+const StudentPage = ({isSelected}) => {
+    const [selectStudent,setSelectStudent] = useState({
+        "name": "JJJ",
+        "apogee": 222,
+        "prenom": "foo",
+        "noteN": 900.0,
+        "noteR": 9060.0,
+        "email": "hiii.doe@example.com",
+        "m3": 0.0,
+        "m4": 0.0,
+        "mr5": 0.0,
+        "m1": 0.0,
+        "m2": 0.0,
+        "mr4": 0.0,
+        "mr6": 0.0,
+        "mr3": 0.0,
+        "mr2": 0.0,
+        "m6": 0.0,
+        "m5": 0.0,
+        "mr1": 0.0
+    });
   return (
-    <div className={`${isSelected === "third" ? "block": "hidden"} w-[90%] mx-auto flex mx-auto flex-row gap-2`}>
-            <Switch/>
-
-      <div className='flex-1'>
-        <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Semestre 3</h3>
+    <div className={`w-[80%] mx-auto mt-14`}>
+        <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>HELLO, {selectStudent.name} {selectStudent.prenom}</h3>
     <div className="bg-white shadow-md rounded my-6">
-    <table className="min-w-max w-full table-auto">
-        <thead>
-          <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-          <th className="py-3 px-6 text-center">Module</th>
-            <th className="py-3 px-6 text-center">Note Normal</th>
-            <th className="py-3 px-6 text-center">Valide</th>
-            <th className="py-3 px-6 text-center">Note Rattrapage</th>
-            <th className="py-3 px-6 text-center">Valide</th>
-          </tr>
-        </thead>
-        <tbody className="text-gray-600 text-sm font-light">
-        {studentData.map((student, index) => (
-            <tr className="border-b border-gray-200 hover:bg-gray-100" onClick={() => handleRowClick(student)}>
-            <th className="py-3 px-6 text-center whitespace-nowrap">{student.name}</th>
-            <td className="py-3 px-6 text-center">{student.apogee}</td>
-            <td className="py-3 px-6 text-center">{student.prenom}</td>
-            <td className="py-3 px-6 text-center">{student.noteR}</td>
-            <td className="py-3 px-6 text-center">{student.email}</td>
-            </tr>
-            ))}
-        </tbody>
-      </table>
-    </div>
-    </div>
-    <div className='flex-1'>
-    <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Liste des Etudiants</h3>
-    <div className="bg-white shadow-md rounded my-6">
-    <table className="min-w-max w-full table-auto">
-        <thead>
+      <table className="min-w-max w-full table-auto">
+      <thead>
           <tr className="bg-gray-200 border-b-4 border-gray-200 uppercase text-sm leading-normal">
           <th className="py-3 px-6 text-center">Module</th>
             <th className="py-3 px-6 text-center">Ordinair</th>
@@ -134,9 +81,8 @@ const Third = ({isSelected}) => {
         </tbody>
       </table>
     </div>
-    </div>
 </div>
   )
 }
 
-export default Third
+export default StudentPage

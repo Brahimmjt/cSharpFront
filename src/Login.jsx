@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigat = useNavigate();
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    // Handle the login logic here, e.g., send the data to a server or perform client-side authentication.
+    
     console.log('Username:', username);
     console.log('Password:', password);
+
+    if(username == "admin" && password == "admin"){
+          console.log("admin")
+          navigat("/etudiants")
+    }else{
+      axios.get('http://localhost:8080/login/'+username+"/"+password)
+      .then(response => {
+        console.log("data:",response.data)});
+        navigat("/StudentPage")
+      } 
   };
 
   return (
@@ -45,7 +57,8 @@ const Login = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600"
+              className="bg-green-500 text-white rounded-md py-2 px-4 hover:bg-reed-600"
+              onClick={() => handleRowClick()}
             >
               Login
             </button>
