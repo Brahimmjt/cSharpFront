@@ -19,6 +19,7 @@ const Login = () => {
       axios.get('http://localhost:8080/login/'+username+"/"+password)
       .then(response => {
         console.log("data:",response.data)});
+        localStorage.setItem("apogee",password);
         navigat("/StudentPage")
       } 
   };
