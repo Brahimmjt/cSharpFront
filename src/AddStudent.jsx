@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { BrowserRouter as Router, Route, Routes, Link,useNavigate } from 'react-router-dom';
 
 const AddStudent = ({ onAddStudent }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    prenom: '',
-    email: '',
-    apogee: '',
+    name: 'oooooo',
+    prenom: 'àààààà',
+    email: 'àààààààà',
+    apogee: 'àààààààà',
   });
+  const navigat = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,17 +20,35 @@ const AddStudent = ({ onAddStudent }) => {
     });
   };
 
-  const handleSubmit = () => {
-    onAddStudent(formData);
+  const handleSubmit = async (e) => {
+    
+    e.preventDefault(); // Prevents the default form submission behavior
+    try {
+      const xmlData = `
+        <student>
+          <name>${formData.name}</name>
+          <prenom>${formData.prenom}</prenom>
+          <apogee>${formData.apogee}</apogee>
+          <email>${formData.email}</email>
+        </student>
+      `;
 
-    setFormData({
-      name: '',
-      prenom: '',
-      email: '',
-      apogee: '',
-    });
+      const response = await axios.post('http://localhost:5104/inscrit', xmlData, {
+        headers: {
+          'Content-Type': 'application/xml',
+        },
+      });
+
+      console.log('Data sent successfully:', response.data);
+      navigat("/etudiants")
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
   };
 
+  useEffect(() => {
+    console.log("hello");
+  }, []);
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
@@ -39,9 +61,9 @@ const AddStudent = ({ onAddStudent }) => {
             <input
               className="w-full border p-2 rounded-md"
               type="text"
-              id="name"
+              name='name'
               placeholder="Enter student's name"
-              value={formData.name}
+              // value={formData.name}
               onChange={handleChange}
             />
           </div>
@@ -52,9 +74,9 @@ const AddStudent = ({ onAddStudent }) => {
             <input
               className="w-full border p-2 rounded-md"
               type="text"
-              id="prenom"
+              name='prenom'
               placeholder="Enter student's prenom"
-              value={formData.prenom}
+              // value={formData.prenom}
               onChange={handleChange}
             />
           </div>
@@ -65,9 +87,9 @@ const AddStudent = ({ onAddStudent }) => {
             <input
               className="w-full border p-2 rounded-md"
               type="email"
-              id="email"
+              name='email'
               placeholder="Enter student's email"
-              value={formData.email}
+              // value={formData.email}
               onChange={handleChange}
             />
           </div>
@@ -78,9 +100,9 @@ const AddStudent = ({ onAddStudent }) => {
             <input
               className="w-full border p-2 rounded-md"
               type="text"
-              id="apogee"
+              name='apogee'
               placeholder="Enter student's Num Appoge"
-              value={formData.apogee}
+              // value={formData.apogee}
               onChange={handleChange}
             />
           </div>

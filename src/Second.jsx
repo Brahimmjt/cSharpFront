@@ -44,27 +44,26 @@ const Second = ({isSelected}) => {
   console.log();
   return (
     <div className={`${isSelected === "second" ? "block": "hidden"} w-[90%] mx-auto flex mx-auto flex-row gap-2`}>
-            <Switch/>
+           <Switch/>
+
       <div className='flex-1'>
-        <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Semestre 2</h3>
+        <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Semestre 3</h3>
     <div className="bg-white shadow-md rounded my-6">
     <table className="min-w-max w-full table-auto">
         <thead>
-          <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-          <th className="py-3 px-6 text-center">Module</th>
-            <th className="py-3 px-6 text-center">Note Normal</th>
-            <th className="py-3 px-6 text-center">Valide</th>
-            <th className="py-3 px-6 text-center">Note Rattrapage</th>
-            <th className="py-3 px-6 text-center">Valide</th>
+          <tr className="bg-blue-400 text-gray-600 uppercase text-sm leading-normal">
+          <th className="py-3 px-6 text-center text-white">name</th>
+            <th className="py-3 px-6 text-center text-white">prenom</th>
+            <th className="py-3 px-6 text-center text-white">apogee</th>
+            <th className="py-3 px-6 text-center text-white">email</th>
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
         {studentData.map((student, index) => (
             <tr className="border-b border-gray-200 hover:bg-gray-100" onClick={() => handleRowClick(student)}>
             <th className="py-3 px-6 text-center whitespace-nowrap">{student.name}</th>
+            <th className="py-3 px-6 text-center">{student.prenom}</th>
             <td className="py-3 px-6 text-center">{student.apogee}</td>
-            <td className="py-3 px-6 text-center">{student.prenom}</td>
-            <td className="py-3 px-6 text-center">{student.noteR}</td>
             <td className="py-3 px-6 text-center">{student.email}</td>
             </tr>
             ))}
@@ -73,16 +72,14 @@ const Second = ({isSelected}) => {
     </div>
     </div>
     <div className='flex-1'>
-    <h3 className='text-center text-gray-600 uppercase text-xl leading-normal m-10 font-bold'>Liste des Etudiants</h3>
+    <h3 className='text-center text-bleu-600 uppercase text-xl leading-normal m-10 font-bold'>Liste des Etudiants</h3>
     <div className="bg-white shadow-md rounded my-6">
     <table className="min-w-max w-full table-auto">
         <thead>
-          <tr className="bg-gray-200 border-b-4 border-gray-200 uppercase text-sm leading-normal">
-          <th className="py-3 px-6 text-center">Module</th>
-            <th className="py-3 px-6 text-center">Ordinair</th>
-            <th className="py-3 px-6 text-center">Ratrapage</th>
-            <th className="py-3 px-6 text-center">Valider</th>
-            <th className="py-3 px-6 text-center">no valider</th>
+          <tr className="bg-black border-b-4 border-gray-200 uppercase text-sm leading-normal">
+          <th className="py-3 px-6 text-center text-white">Module</th>
+            <th className="py-3 px-6 text-center text-white">Ordinair</th>
+            <th className="py-3 px-6 text-center text-white">Ratrapage</th>
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
@@ -90,43 +87,31 @@ const Second = ({isSelected}) => {
             <td className="py-3 px-6 text-center">JEE</td>
             <td className="py-3 px-6 text-center">{selectStudent.m1}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr1}</td>
-            <td className="py-3 px-6 text-center"></td>
-            <td className="py-3 px-6 text-center"></td>
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">machine learning</td>
             <td className="py-3 px-6 text-center">{selectStudent.m2}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr2}</td>
-            <td className="py-3 px-6 text-center"></td>
-            <td className="py-3 px-6 text-center"></td>
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">crypto graphy</td>
             <td className="py-3 px-6 text-center">{selectStudent.m3}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr3}</td>
-            <td className="py-3 px-6 text-center"></td>
-            <td className="py-3 px-6 text-center"></td>
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">English</td>
             <td className="py-3 px-6 text-center">{selectStudent.m4}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr4}</td>
-            <td className="py-3 px-6 text-center"></td>
-            <td className="py-3 px-6 text-center"></td>
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">Oracle</td>
             <td className="py-3 px-6 text-center">{selectStudent.m5}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr5}</td>
-            <td className="py-3 px-6 text-center"></td>
-            <td className="py-3 px-6 text-center"></td>
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">IoT</td>
             <td className="py-3 px-6 text-center">{selectStudent.m6}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr6}</td>
-            <td className="py-3 px-6 text-center"></td>
-            <td className="py-3 px-6 text-center"></td>
           </tr>
         </tbody>
       </table>

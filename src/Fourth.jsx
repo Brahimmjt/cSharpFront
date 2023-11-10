@@ -81,12 +81,11 @@ const Fourth = ({isSelected}) => {
     <div className="bg-white shadow-md rounded my-6">
       <table className="min-w-max w-full table-auto">
         <thead>
-          <tr className="bg-orange-500 border-b-4 border-gray-200 uppercase text-sm leading-normal">
+          <tr className="bg-black border-b-4 border-gray-200 uppercase text-sm leading-normal">
           <th className="py-3 px-6 text-center text-white">Module</th>
             <th className="py-3 px-6 text-center text-white">Ordinair</th>
             <th className="py-3 px-6 text-center text-white">Ratrapage</th>
-            <th className="py-3 px-6 text-center text-white">Valider</th>
-            <th className="py-3 px-6 text-center text-white">no valider</th>
+            
           </tr>
         </thead>
         <tbody className="text-gray-600 text-sm font-light">
@@ -94,43 +93,37 @@ const Fourth = ({isSelected}) => {
             <td className="py-3 px-6 text-center">JEE</td>
             <td className="py-3 px-6 text-center">{selectStudent.m1}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr1}</td>
-            <td className="py-3 px-6 text-center "></td>
-            <td className="py-3 px-6 text-center bg-red-400"></td>
+           
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">machine learning</td>
             <td className="py-3 px-6 text-center">{selectStudent.m2}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr2}</td>
-            <td className="py-3 px-6 text-center bg-green-400"></td>
-            <td className="py-3 px-6 text-center "></td>
+            
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">crypto graphy</td>
             <td className="py-3 px-6 text-center">{selectStudent.m3}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr3}</td>
-            <td className="py-3 px-6 text-center bg-green-400"></td>
-            <td className="py-3 px-6 text-center"></td>
+            
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">English</td>
             <td className="py-3 px-6 text-center">{selectStudent.m4}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr4}</td>
-            <td className="py-3 px-6 text-center bg-green-400"></td>
-            <td className="py-3 px-6 text-center"></td>
+           
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">Oracle</td>
             <td className="py-3 px-6 text-center">{selectStudent.m5}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr5}</td>
-            <td className="py-3 px-6 text-center "></td>
-            <td className="py-3 px-6 text-center bg-red-400"></td>
+            
           </tr>
           <tr className="border-b border-gray-200 hover:bg-gray-100">
             <td className="py-3 px-6 text-center">IoT</td>
             <td className="py-3 px-6 text-center">{selectStudent.m6}</td>
             <td className="py-3 px-6 text-center">{selectStudent.mr6}</td>
-            <td className="py-3 px-6 text-center bg-green-400"></td>
-            <td className="py-3 px-6 text-center"></td>
+      
           </tr>
         </tbody>
       </table>

@@ -23,7 +23,7 @@ const Etudiants = () => {
     <div className="bg-white shadow-md rounded my-6">
       <table className="min-w-max w-full table-auto">
         <thead>
-          <tr className="bg-green-500 border-b-4 border-gray-200 uppercase text-sm leading-normal">
+          <tr className="bg-purple-500 border-b-4 border-gray-200 uppercase text-sm leading-normal">
           <th className="py-3 px-6 text-center text-white">Nom</th>
             <th className="py-3 px-6 text-center text-white">Prenom</th>
             <th className="py-3 px-6 text-center text-white">Email</th>
@@ -34,7 +34,7 @@ const Etudiants = () => {
         {studentData.map((student, index) => (
             <tr className="border-b border-gray-200 hover:bg-gray-100" onClick={() => handleRowClick(student)}>
             <th className="py-3 px-6 text-center whitespace-nowrap">{student.name}</th>
-            <td className="py-3 px-6 text-center">{student.prenom}</td>
+            <th className="py-3 px-6 text-center">{student.prenom}</th>
             <td className="py-3 px-6 text-center">{student.email}</td>
             <td className="py-3 px-6 text-center">{student.apogee}</td>
             </tr>

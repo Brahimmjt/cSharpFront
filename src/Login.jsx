@@ -18,9 +18,17 @@ const Login = () => {
     }else{
       axios.get('http://localhost:8080/login/'+username+"/"+password)
       .then(response => {
-        console.log("data:",response.data)});
+        console.log("data:",response.data)
         localStorage.setItem("apogee",password);
+        localStorage.setItem("name",username);
+        if(response.data == "student existe"){
         navigat("/StudentPage")
+        }
+        else{
+          alert("conixion error")
+        }
+      });
+        
       } 
   };
 
